@@ -32,13 +32,17 @@ class Program
         
         Console.WriteLine($"Your grade is {letter}.");
         
-        if (letter == "A" || letter =="B" || letter =="C")
+        if (grade >= 70)
         {   
             Console.WriteLine("Congratulations");
         }
         else
         {
             Console.WriteLine("Try harder next time");
+        }
+        for(int i = 0; i < 10; i++)
+        {
+            Console.WriteLine(i);
         }
 
     }
