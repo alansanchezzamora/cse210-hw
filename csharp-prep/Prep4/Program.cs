@@ -26,7 +26,7 @@ class Program
 
         float average = 0;
 
-        average = suma / (numbers.Count-1);
+        average = suma / ((numbers.Count)-1);
         Console.WriteLine($"The average is {average}");
 
         Console.WriteLine($"The largest number is {numbers.Max()}");

@@ -8,7 +8,6 @@ class Program
 
         string userName = GetName();
         int userNumber = GetNumber();
-
         int squared = SquareNumber(userNumber);
 
         PrintResult(userName, squared);
@@ -36,6 +35,7 @@ class Program
             int square = number * number;
             return square;
         }
+
         static void PrintResult(string name, int square)
         {
             Console.Write($"{name}, the square of your number is {square}");
