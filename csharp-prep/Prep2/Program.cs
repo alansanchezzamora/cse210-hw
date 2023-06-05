@@ -40,10 +40,5 @@ class Program
         {
             Console.WriteLine("Try harder next time");
         }
-        for(int i = 0; i < 10; i++)
-        {
-            Console.WriteLine(i);
-        }
-
     }
 }
