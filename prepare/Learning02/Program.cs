@@ -20,6 +20,8 @@ class Program
         myResume._name = "Alan Sánchez";
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
+
+        
         myResume.DisplayJobDetails();
     }
 }

@@ -1,15 +1,23 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.Write("What is your first name? ");
-        string first_name = Console.ReadLine();
+        List<string> myList = new List<string>()
+        {
+            "Apple",
+            "Banana",
+            "Orange",
+            "Mango",
+            "Grape"
+        };
 
-        Console.Write("What is your last name? ");
-        string last_name = Console.ReadLine();
-        
-        Console.WriteLine($"Your name is {last_name}, {first_name} {last_name}.");
+        Random random = new Random();
+        int randomIndex = random.Next(myList.Count);
+        string randomElement = myList[randomIndex];
+
+        Console.WriteLine("Randomly selected element: " + randomElement);
     }
 }
