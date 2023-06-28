@@ -28,7 +28,7 @@ public class Scripture
      public void HideWords(List<Word> scriptureList){
         int wordsCounter = 0;
         while(wordsCounter < 3){
-        if(IsCompletelyHidden(scriptureList) == true){
+        if(IsCompletelyHidden(scriptureList) == false){
             break;
         }
         else{
@@ -42,11 +42,12 @@ public class Scripture
         }
      }
 
+    
      public bool IsCompletelyHidden(List<Word> scriptureList){
-        bool flag = true;
+        bool flag = false;
         foreach(Word w in scriptureList){
-            if(w.GetIsHidden() == false){
-                flag = false;
+            if(w.GetIsHidden() == true){
+                flag = true;
                 break;
             }
         }

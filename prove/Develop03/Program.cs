@@ -8,16 +8,13 @@ class Program
         string referenceText = "Juan 14:25";
         Scripture myScripture = new Scripture(scriptureText);
         Reference myReference = new Reference(referenceText);
-        myReference.ShowReference();
-        myScripture.DisplayScripture();
-                
-                
+                                
         bool answer = false;
-        while (myScripture.IsCompletelyHidden(myScripture.GetScripture()) && answer ){
+        while (myScripture.IsCompletelyHidden(myScripture.GetScripture())  && answer == true ){
             Console.Clear();
             myReference.ShowReference();
             myScripture.DisplayScripture();
-            Console.Write("\n\nPress enter to hide words... ");
+            Console.Write("\n\nPress enter to hide words, or quit to exit ");
             string next = Console.ReadLine();
             next.ToLower();
             if (next == "quit"){
