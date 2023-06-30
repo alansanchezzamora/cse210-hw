@@ -16,6 +16,7 @@ public class ReflectionActivity : Activity{
 
         var random = new Random();
         var index = random.Next(0, prompts.Count);
+        Console.Clear();
         string output = $"Consider the following prompt: \n ---{prompts[index]}--- \n When you have something in mind, press enter to continue.";
         Console.WriteLine(output);
         Console.ReadLine();

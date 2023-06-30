@@ -6,8 +6,11 @@ class Program
     {
         
         string option = "";
+        int counterActs = 0;
+        int counterTime = 0;
         
         MenuControl menu1 = new MenuControl();
+        Activity act1 = new Activity("menu", "none");
 
         option = menu1.SelectMenuOption();
         int time = 0;
@@ -23,6 +26,8 @@ class Program
                 Console.WriteLine(bact.DisplayEndingMessage());
                 Thread.Sleep(3000);
                 Console.Clear();
+                counterActs ++;
+                counterTime += time;
                 option = menu1.SelectMenuOption();
             }
             
@@ -37,6 +42,8 @@ class Program
                 Console.WriteLine(ract.DisplayEndingMessage());
                 Thread.Sleep(3000);
                 Console.Clear();
+                counterActs ++;
+                counterTime += time;
                 option = menu1.SelectMenuOption();
             }
             
@@ -51,6 +58,8 @@ class Program
                 Console.WriteLine(lact.DisplayEndingMessage());
                 Thread.Sleep(3000);
                 Console.Clear();
+                counterActs ++;
+                counterTime += time;
                 option = menu1.SelectMenuOption();
             }
             else{
@@ -62,5 +71,7 @@ class Program
         
             
         }
+    Console.WriteLine($"In this session you completed {counterActs} activities in {counterTime} seconds.");
+    act1.SpinnerPause();
     }
 }
