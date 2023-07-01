@@ -13,7 +13,7 @@ class Program
         Job job2 = new Job();
         job2._company = "Google";
         job2._startYear = 2022;
-        job2._endYear = 2023;
+        job2._endYear = 2025;
         job2._jobTitle = "Software Engineer II";
 
         Resume myResume = new Resume();

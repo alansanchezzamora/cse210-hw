@@ -31,11 +31,12 @@ public class Entry
     {
         return _date;
     }
-    public void SetDate()
+    public string SetDate()
     {
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
         _date = dateText;
+        return _date;
     }
 }
 
