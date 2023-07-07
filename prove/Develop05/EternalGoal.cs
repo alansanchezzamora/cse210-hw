@@ -28,5 +28,14 @@ public class EternalGoal : Goal{
     }
     public override void GoalCompleted()
     {
+        Console.WriteLine($"Congratulations you earned {GetGoalPoints()} points.");
+    }
+    public override string SetCompletedMark()
+    {
+        return "";
+    }
+    public override int GetBonusPoints()
+    {
+        return 0;
     }
 }

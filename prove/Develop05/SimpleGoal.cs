@@ -41,6 +41,21 @@ public class SimpleGoal : Goal{
     public override void GoalCompleted()
     {
         SetIsCompelte();
+        Console.WriteLine($"Congratulations you earned {GetGoalPoints()} points.");
+    }
+    public override string SetCompletedMark()
+    {
+        if(GetIsComplete() == true){
+            return "X";
+        }
+        else{
+            return "";
+        }
+    }
+
+    public override int GetBonusPoints()
+    {
+        return 0;
     }
 
 }

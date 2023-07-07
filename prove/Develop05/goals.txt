@@ -1,3 +1,4 @@
-SimpleGoal±1±run a marathon±run 42km in 2023±100±False
-EternalGoal±2±read scriptures±read 1 chapter dialy±50±
-ChecklistGoal±3±go to the temple±go to endowment session±50±500±2±1
+1100
+ChecklistGoal±1±Go to the temple±Go to the endowment session±100±500±5±5
+SimpleGoal±2±Run a marathon±Run 42km in 2023±100±True
+EternalGoal±3±Read the scriptures±read 1 chapter dialy±50±

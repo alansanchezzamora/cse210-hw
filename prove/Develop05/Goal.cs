@@ -63,6 +63,9 @@ public abstract class Goal{
 
     public abstract void GoalCompleted();
 
+    public abstract string SetCompletedMark();
+    
+    public abstract int GetBonusPoints();
     
 
 }

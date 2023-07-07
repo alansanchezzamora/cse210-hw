@@ -4,11 +4,11 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
         int menuOption = 0;
         int goalType = 0;
         int totalScore = 0;
         List<Goal> _goals = new List<Goal>();
-        Console.WriteLine($"You have {totalScore} points");
         MenuControl menu = new MenuControl();
         menuOption = menu.SelectMenuOption();
 
@@ -35,13 +35,19 @@ class Program
                     _goals.Add(clgoal); 
                     menuOption = menu.SelectMenuOption();
                 }
+                Console.Clear();
             }
             if(menuOption == 2){
                 int counter = 0;
+                Console.Clear();
+                Console.WriteLine($"Your score is {totalScore} points");
                 foreach(Goal s in _goals){
                     counter ++;
-                    Console.WriteLine($"{counter}. [***] {s.GetGoalName()} ({s.GetGoalDescription()}) {s.ReturnCompleted()} ");
+                    Console.WriteLine($"{counter}. [{s.SetCompletedMark()}] {s.GetGoalName()} ({s.GetGoalDescription()}) {s.ReturnCompleted()} ");
                 }
+                Console.WriteLine("Press enter to continue");
+                Console.ReadLine();
+                Console.Clear();
                 menuOption = menu.SelectMenuOption();
             }
             if(menuOption == 3){
@@ -51,6 +57,7 @@ class Program
                 using(StreamWriter OutputFile = new StreamWriter(filename))
                 {
                     int counter = 0;
+                    OutputFile.WriteLine(totalScore);
                     foreach(Goal s in _goals){
                     counter++;
                     OutputFile.WriteLine($"{s.GetGoalTypeName()}±{counter}±{s.GetGoalName()}±{s.GetGoalDescription()}±{s.GetGoalPoints()}±{s.PrintToFile()}");
@@ -63,6 +70,7 @@ class Program
                 Console.Write("Open file: ");
                 string fileName = Console.ReadLine();
                 string [] userFile = System.IO.File.ReadAllLines(fileName);
+                totalScore = int.Parse(File.ReadLines(fileName).FirstOrDefault());
                 foreach(string line in userFile){
                     string [] parts = line.Split("±");
                     if(parts[0]=="SimpleGoal"){
@@ -73,6 +81,9 @@ class Program
                         sgoal.SetGoalPoints(int.Parse(parts[4]));
                         sgoal.SetGoalType(1);
                         sgoal.SetGoalTypeName(parts[0]);
+                        if(parts[5] == "True"){
+                            sgoal.SetIsCompelte();
+                        }
                         _goals.Add(sgoal);
                     }
                     if(parts[0]=="EternalGoal"){
@@ -100,9 +111,12 @@ class Program
                     }
 
                 }
+                Console.Clear();
+                Console.WriteLine($"You have {totalScore} points");
                 menuOption = menu.SelectMenuOption();
             }
             if(menuOption == 5){
+                Console.Clear();
                 int counter = 0;
                 foreach(Goal s in _goals){
                     counter ++;
@@ -111,10 +125,12 @@ class Program
                 Console.WriteLine("Which goal did you accomplish?");
                 int goalAccomplished = int.Parse(Console.ReadLine()) - 1;
                 int awardedPoints = (_goals[goalAccomplished].GetGoalPoints());
-                Console.WriteLine($"Congratulations! You have earned {awardedPoints} points!");
-                Console.WriteLine($"Now you have {awardedPoints} points!");
                 _goals[goalAccomplished].GoalCompleted();
-
+                totalScore = totalScore + _goals[goalAccomplished].GetGoalPoints() + _goals[goalAccomplished].GetBonusPoints();
+                Console.WriteLine($"Your total score is {totalScore}");
+                Console.WriteLine("Press enter to continue");
+                Console.ReadLine();
+                Console.Clear();
                 menuOption = menu.SelectMenuOption();
             }
         }   

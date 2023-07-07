@@ -2,17 +2,32 @@ public class ChecklistGoal : Goal{
     private int _timesToComplete;
     private int _bounsPoints;
     private int _timesCompleted;
+    private string _completedMark;
 
-
-    public ChecklistGoal(int goalID, string goalName, string goalDescription, int goalPoints, int goalType, string goalTypeName, int timesCompleted, int timesToComplete, int bonusPoints, int completeCount)
+    public ChecklistGoal(int goalID, string goalName, string goalDescription, int goalPoints, int goalType, string goalTypeName, int timesCompleted, int timesToComplete, int bonusPoints, int completeCount, string completedMark)
     :base(goalID, goalName, goalDescription, goalPoints, goalType, goalTypeName){
         _timesToComplete = timesToComplete;
         _bounsPoints = bonusPoints;
         _timesCompleted = timesCompleted;
         _completeCount = completeCount;
+        _completedMark = completedMark;
+
     }
     public ChecklistGoal()
     {}
+    public string GetCompletedMark(){
+        return _completedMark;
+    }
+
+    public override string SetCompletedMark(){
+        if(_timesCompleted == _timesToComplete){
+            return "X";
+        }
+        else{
+            return "";
+        }
+    }
+
     public int GetTimesCompleted(){
         return _timesCompleted;
     }
@@ -27,8 +42,12 @@ public class ChecklistGoal : Goal{
         _timesToComplete = timesToComlete1;
     }
 
-    public int GetBonusPoints(){
-        return _bounsPoints;
+    public override int GetBonusPoints(){
+        if(_timesCompleted == _timesToComplete ){
+        return _bounsPoints;}
+        else{
+            return 0;
+        }
     }
     public void SetBonusPoints( int bonusPoints1){
         _bounsPoints = bonusPoints1;
@@ -60,7 +79,7 @@ public class ChecklistGoal : Goal{
 
     public override string PrintToFile()
     {
-        return $"{GetBonusPoints()}±{GetTimesToComplete()}±{GetTimesCompleted()}";
+        return $"{GetBonusPoints()}±{GetTimesCompleted()}±{GetTimesToComplete()}";
     }
 
     public override void GoalCompleted()
@@ -68,9 +87,12 @@ public class ChecklistGoal : Goal{
         if(GetTimesCompleted() < GetTimesToComplete()){
             _timesCompleted++;
             SetTimesCompelted(_timesCompleted);
-            Console.WriteLine($"Congratulations you earned {GetGoalPoints()} points.");
+            
             if(_timesCompleted == _timesToComplete ){
-                Console.WriteLine($"Congratulations! You completed the goal. You win {GetBonusPoints()}");
+                Console.WriteLine($"Congratulations! You completed the goal. You win {GetBonusPoints() + GetGoalPoints()}");
+            }
+            else{
+                Console.WriteLine($"Congratulations you earned {GetGoalPoints()} points.");
             }
         }
     }
