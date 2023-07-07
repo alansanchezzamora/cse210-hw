@@ -139,9 +139,9 @@ class Program
                     counter++;
                     Console.WriteLine($"{counter}. {s.GetGoalName()}");
                 }
+                
                 Console.WriteLine("Which goal did you accomplish?");
                 int goalAccomplished = int.Parse(Console.ReadLine()) - 1;
-                int awardedPoints = (_goals[goalAccomplished].GetGoalPoints());
                 _goals[goalAccomplished].GoalCompleted();
                 totalScore = totalScore + _goals[goalAccomplished].GetGoalPoints() + _goals[goalAccomplished].GetBonusPoints();
                 Console.WriteLine($"Your total score is {totalScore}");
