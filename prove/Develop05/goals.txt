@@ -1,4 +1,5 @@
-1100
-ChecklistGoal±1±Go to the temple±Go to the endowment session±100±500±5±5
-SimpleGoal±2±Run a marathon±Run 42km in 2023±100±True
+0
+ChecklistGoal±1±Go to the temple±Go to the endowment session±100±500±5±0
+SimpleGoal±2±Run a marathon±Run 42km in 2023±100±False
 EternalGoal±3±Read the scriptures±read 1 chapter dialy±50±
+SimpleGoal±4±Go to Japan±For 1 week±200±False
