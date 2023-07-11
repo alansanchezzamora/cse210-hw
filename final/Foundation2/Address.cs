@@ -4,7 +4,15 @@ public class Address{
     private string _state;
     private string _country;
 
-    public bool CountryUSA(){
+    public Address(string street, string city, string state, string country)
+    {
+        _street = street;
+        _city = city;
+        _state = state;
+        _country = country;
+    }
+
+    public bool GetCountryUSA(){
         if (_country == "USA"){
             return true;
         } 
