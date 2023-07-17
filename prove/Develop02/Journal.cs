@@ -1,41 +1,19 @@
 using System.Collections.Generic;
 using System.IO;
 public class Journal{
+    public List<Entry> entries = new List<Entry>();
+    public Prompt Prompt;
     
-    public Entry _entry = new Entry();
-    public List<Entry> _entries = new List<Entry>();
+    string prompt0;
+    public void AddEntry(){
+        prompt0 = Prompt.RandomPrompt();
+        Entry Entry = new Entry();
 
-    public Prompt _prompt = new Prompt();
-
-
-    public void SetEntries(string entry, string date, string prompt){
-
+        Console.WriteLine(prompt0);
+        Entry._prompt = prompt0;
+        Entry._entry = Console.ReadLine();
+        entries.Add(Entry);
     }
 
-    public void DisplayJournal(){
-        Journal myJournal = new Journal();
-        foreach(Entry e in myJournal._entries)
-        {
-            e.DisplayEntry();
-        }
-
-        string output = ("Press enter when you are ready to continue");
-        Console.WriteLine(output);
-        Console.ReadLine();
-    }
-
-    public void WriteEntry(){
-        Journal myJournal = new Journal();        
-        string testPrompt = _prompt.promptGenerator();
-        Console.WriteLine(testPrompt);
-        string entry = Console.ReadLine();
-        string date = _entry.SetDate();
-        
-        _entry._prompt = testPrompt;
-        _entry._entry = entry;
-        _entry._date = date;
-        myJournal._entries.Add(_entry);
-
-    }
 
 }

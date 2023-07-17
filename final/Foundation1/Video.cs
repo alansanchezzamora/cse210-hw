@@ -5,8 +5,23 @@ public class Video{
 
     public List<Comment> _comments = new List<Comment>();
 
-    public void PrintList()
+    public string PrintList()
     {
-        Console.WriteLine($"Video : {_title}. Author : {_author}. Length : {_length}s. Comments : {_comments.Count()}");
+        return $"Video : {_title}. Author : {_author}. Length : {_length}s.";
+    }
+
+    public string CommentsNumber()
+    {
+        return $"Comments : {_comments.Count()}";
+
+    }
+
+    public void PrintComments()
+    {
+        foreach (Comment C in _comments)
+        {
+            C.PrintComment();
+        }
+
     }
 }

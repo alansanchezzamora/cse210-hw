@@ -76,7 +76,13 @@ class Program
 
         foreach(Video v in _videos)
         {
-            v.PrintList();
+            Console.WriteLine($"{v.PrintList()}");
+            Console.WriteLine(v.CommentsNumber());
+            v.PrintComments();
         }
+        
+
+
+
     }
 }
